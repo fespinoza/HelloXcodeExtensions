@@ -1,26 +1,12 @@
 //
-//  HelloXcodeExtensionsTests.swift
-//  HelloXcodeExtensionsTests
+//  Utils.swift
+//  SplitJoin
 //
-//  Created by Felipe Espinoza on 05/11/2019.
+//  Created by Felipe Espinoza on 19/11/2019.
 //  Copyright © 2019 Felipe Espinoza. All rights reserved.
 //
 
-import XCTest
 import Foundation
-//@testable import SplitJoin
-
-static let attributesStyle = AdPageLabelValuePairsViewStyle(
-    titleFont: .caption,
-    titleColor: .textPrimary,
-    titleNumberOfLines: 1,
-    titleColomnFixedWidth: 130,
-    valueFont: .caption,
-    valueColor: .textPrimary,
-    valueNumberOfLines: 1,
-    extraRowSpacing: .smallSpacing
-)
-static let attributesStyle = AdPageLabelValuePairsViewStyle(titleFont: .caption, titleColor: .textPrimary, titleNumberOfLines: 1, titleColomnFixedWidth: 130, valueFont: .caption, valueColor: .textPrimary, valueNumberOfLines: 1, extraRowSpacing: .smallSpacing)
 
 struct Utils {
     static func split(_ string: String) -> String {
@@ -75,51 +61,5 @@ struct Utils {
         foo = foo.replacingOccurrences(of: #"\s+\)"#, with: ")", options: .regularExpression)
 
         return foo
-    }
-}
-
-
-class HelloXcodeExtensionsTests: XCTestCase {
-    func split(_ string: String) -> String {
-        Utils.split(string)
-    }
-
-    func join(_ string: String) -> String {
-        Utils.join(string)
-    }
-
-    // TODO: test nested cases
-
-    let joined = """
-        static let attributesStyle = AdPageLabelValuePairsViewStyle(titleFont: .caption, titleColor: .textPrimary, titleNumberOfLines: 1, titleColomnFixedWidth: 130, valueFont: .caption, valueColor: .textPrimary, valueNumberOfLines: 1, extraRowSpacing: .smallSpacing)
-    """
-
-    let splitted = """
-        static let attributesStyle = AdPageLabelValuePairsViewStyle(
-            titleFont: .caption,
-            titleColor: .textPrimary,
-            titleNumberOfLines: 1,
-            titleColomnFixedWidth: 130,
-            valueFont: .caption,
-            valueColor: .textPrimary,
-            valueNumberOfLines: 1,
-            extraRowSpacing: .smallSpacing
-        )
-    """
-
-    func testSplitIdentity() {
-        XCTAssertEqual(split(splitted), splitted)
-    }
-
-    func testSplit() {
-        XCTAssertEqual(split(joined), splitted)
-    }
-
-    func testJoin() {
-        XCTAssertEqual(join(splitted), joined)
-    }
-
-    func testJoinIdentity() {
-        XCTAssertEqual(join(joined), joined)
     }
 }

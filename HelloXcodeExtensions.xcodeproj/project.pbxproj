@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B3026BB238436E800D81EDC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3026BA238436E800D81EDC /* Utils.swift */; };
 		9B564A0223716F3200734488 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A0123716F3200734488 /* AppDelegate.swift */; };
 		9B564A0423716F3200734488 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A0323716F3200734488 /* ViewController.swift */; };
 		9B564A0623716F3400734488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B564A0523716F3400734488 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B3026BA238436E800D81EDC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9B5649FE23716F3200734488 /* HelloXcodeExtensions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloXcodeExtensions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B564A0123716F3200734488 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B564A0323716F3200734488 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		9B564A2B23716FC600734488 /* HelloXcodeExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloXcodeExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B564A2D23716FC600734488 /* HelloXcodeExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloXcodeExtensionsTests.swift; sourceTree = "<group>"; };
 		9B564A2F23716FC600734488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BA546EC2372FFB0006538F9 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,7 @@
 		9B5649F523716F3200734488 = {
 			isa = PBXGroup;
 			children = (
+				9BA546EC2372FFB0006538F9 /* MyPlayground.playground */,
 				9B564A0023716F3200734488 /* HelloXcodeExtensions */,
 				9B564A1923716F9800734488 /* SplitJoin */,
 				9B564A2C23716FC600734488 /* HelloXcodeExtensionsTests */,
@@ -143,6 +147,7 @@
 				9B564A1C23716F9800734488 /* SourceEditorCommand.swift */,
 				9B564A1E23716F9800734488 /* Info.plist */,
 				9B564A1F23716F9800734488 /* SplitJoin.entitlements */,
+				9B3026BA238436E800D81EDC /* Utils.swift */,
 			);
 			path = SplitJoin;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			files = (
 				9B564A1B23716F9800734488 /* SourceEditorExtension.swift in Sources */,
 				9B564A1D23716F9800734488 /* SourceEditorCommand.swift in Sources */,
+				9B3026BB238436E800D81EDC /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
