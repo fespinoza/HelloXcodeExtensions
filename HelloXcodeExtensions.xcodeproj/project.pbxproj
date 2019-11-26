@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B3026BB238436E800D81EDC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3026BA238436E800D81EDC /* Utils.swift */; };
 		9B564A0223716F3200734488 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A0123716F3200734488 /* AppDelegate.swift */; };
 		9B564A0423716F3200734488 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A0323716F3200734488 /* ViewController.swift */; };
 		9B564A0623716F3400734488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B564A0523716F3400734488 /* Assets.xcassets */; };
@@ -16,7 +15,15 @@
 		9B564A1B23716F9800734488 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A1A23716F9800734488 /* SourceEditorExtension.swift */; };
 		9B564A1D23716F9800734488 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A1C23716F9800734488 /* SourceEditorCommand.swift */; };
 		9B564A2223716F9800734488 /* SplitJoin.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B564A1523716F9800734488 /* SplitJoin.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9B564A2E23716FC600734488 /* HelloXcodeExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A2D23716FC600734488 /* HelloXcodeExtensionsTests.swift */; };
+		9BB6140D238DBFB800FE8908 /* SplitJoinKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */; };
+		9BB61414238DBFB800FE8908 /* SplitJoinKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB61413238DBFB800FE8908 /* SplitJoinKitTests.swift */; };
+		9BB61416238DBFB800FE8908 /* SplitJoinKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BB61406238DBFB800FE8908 /* SplitJoinKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BB61419238DBFB800FE8908 /* SplitJoinKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */; };
+		9BB6141A238DBFB800FE8908 /* SplitJoinKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9BB61422238DBFC600FE8908 /* SplitJoinKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */; };
+		9BB61423238DBFC600FE8908 /* SplitJoinKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9BB61427238DBFD000FE8908 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3026BA238436E800D81EDC /* Utils.swift */; };
+		9BB61428238DBFDA00FE8908 /* CodeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB2C0C238C77AB00362C8D /* CodeRange.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,12 +34,33 @@
 			remoteGlobalIDString = 9B564A1423716F9800734488;
 			remoteInfo = SplitJoin;
 		};
-		9B564A3023716FC600734488 /* PBXContainerItemProxy */ = {
+		9BB6140E238DBFB800FE8908 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B5649F623716F3200734488 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BB61403238DBFB800FE8908;
+			remoteInfo = SplitJoinKit;
+		};
+		9BB61410238DBFB800FE8908 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9B5649F623716F3200734488 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9B5649FD23716F3200734488;
 			remoteInfo = HelloXcodeExtensions;
+		};
+		9BB61417238DBFB800FE8908 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B5649F623716F3200734488 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BB61403238DBFB800FE8908;
+			remoteInfo = SplitJoinKit;
+		};
+		9BB61424238DBFC600FE8908 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B5649F623716F3200734488 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BB61403238DBFB800FE8908;
+			remoteInfo = SplitJoinKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -46,6 +74,28 @@
 				9B564A2223716F9800734488 /* SplitJoin.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BB6141B238DBFB800FE8908 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9BB6141A238DBFB800FE8908 /* SplitJoinKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BB61426238DBFC600FE8908 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9BB61423238DBFC600FE8908 /* SplitJoinKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -65,10 +115,13 @@
 		9B564A1C23716F9800734488 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
 		9B564A1E23716F9800734488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B564A1F23716F9800734488 /* SplitJoin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SplitJoin.entitlements; sourceTree = "<group>"; };
-		9B564A2B23716FC600734488 /* HelloXcodeExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloXcodeExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B564A2D23716FC600734488 /* HelloXcodeExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloXcodeExtensionsTests.swift; sourceTree = "<group>"; };
-		9B564A2F23716FC600734488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9BA546EC2372FFB0006538F9 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SplitJoinKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BB61406238DBFB800FE8908 /* SplitJoinKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplitJoinKit.h; sourceTree = "<group>"; };
+		9BB61407238DBFB800FE8908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BB6140C238DBFB800FE8908 /* SplitJoinKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SplitJoinKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BB61413238DBFB800FE8908 /* SplitJoinKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitJoinKitTests.swift; sourceTree = "<group>"; };
+		9BB61415238DBFB800FE8908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BBB2C0C238C77AB00362C8D /* CodeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeRange.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB61419238DBFB800FE8908 /* SplitJoinKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,14 +137,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB61422238DBFC600FE8908 /* SplitJoinKit.framework in Frameworks */,
 				9B564A1823716F9800734488 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B564A2823716FC600734488 /* Frameworks */ = {
+		9BB61401238DBFB800FE8908 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BB61409238DBFB800FE8908 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BB6140D238DBFB800FE8908 /* SplitJoinKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,10 +163,10 @@
 		9B5649F523716F3200734488 = {
 			isa = PBXGroup;
 			children = (
-				9BA546EC2372FFB0006538F9 /* MyPlayground.playground */,
 				9B564A0023716F3200734488 /* HelloXcodeExtensions */,
 				9B564A1923716F9800734488 /* SplitJoin */,
-				9B564A2C23716FC600734488 /* HelloXcodeExtensionsTests */,
+				9BB61405238DBFB800FE8908 /* SplitJoinKit */,
+				9BB61412238DBFB800FE8908 /* SplitJoinKitTests */,
 				9B564A1623716F9800734488 /* Frameworks */,
 				9B5649FF23716F3200734488 /* Products */,
 			);
@@ -114,7 +177,8 @@
 			children = (
 				9B5649FE23716F3200734488 /* HelloXcodeExtensions.app */,
 				9B564A1523716F9800734488 /* SplitJoin.appex */,
-				9B564A2B23716FC600734488 /* HelloXcodeExtensionsTests.xctest */,
+				9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */,
+				9BB6140C238DBFB800FE8908 /* SplitJoinKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,21 +211,42 @@
 				9B564A1C23716F9800734488 /* SourceEditorCommand.swift */,
 				9B564A1E23716F9800734488 /* Info.plist */,
 				9B564A1F23716F9800734488 /* SplitJoin.entitlements */,
-				9B3026BA238436E800D81EDC /* Utils.swift */,
 			);
 			path = SplitJoin;
 			sourceTree = "<group>";
 		};
-		9B564A2C23716FC600734488 /* HelloXcodeExtensionsTests */ = {
+		9BB61405238DBFB800FE8908 /* SplitJoinKit */ = {
 			isa = PBXGroup;
 			children = (
-				9B564A2D23716FC600734488 /* HelloXcodeExtensionsTests.swift */,
-				9B564A2F23716FC600734488 /* Info.plist */,
+				9BBB2C0C238C77AB00362C8D /* CodeRange.swift */,
+				9B3026BA238436E800D81EDC /* Utils.swift */,
+				9BB61406238DBFB800FE8908 /* SplitJoinKit.h */,
+				9BB61407238DBFB800FE8908 /* Info.plist */,
 			);
-			path = HelloXcodeExtensionsTests;
+			path = SplitJoinKit;
+			sourceTree = "<group>";
+		};
+		9BB61412238DBFB800FE8908 /* SplitJoinKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				9BB61413238DBFB800FE8908 /* SplitJoinKitTests.swift */,
+				9BB61415238DBFB800FE8908 /* Info.plist */,
+			);
+			path = SplitJoinKitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9BB613FF238DBFB800FE8908 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BB61416238DBFB800FE8908 /* SplitJoinKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		9B5649FD23716F3200734488 /* HelloXcodeExtensions */ = {
@@ -172,11 +257,13 @@
 				9B5649FB23716F3200734488 /* Frameworks */,
 				9B5649FC23716F3200734488 /* Resources */,
 				9B564A2623716F9800734488 /* Embed App Extensions */,
+				9BB6141B238DBFB800FE8908 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				9B564A2123716F9800734488 /* PBXTargetDependency */,
+				9BB61418238DBFB800FE8908 /* PBXTargetDependency */,
 			);
 			name = HelloXcodeExtensions;
 			productName = HelloXcodeExtensions;
@@ -190,32 +277,53 @@
 				9B564A1123716F9800734488 /* Sources */,
 				9B564A1223716F9800734488 /* Frameworks */,
 				9B564A1323716F9800734488 /* Resources */,
+				9BB61426238DBFC600FE8908 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9BB61425238DBFC600FE8908 /* PBXTargetDependency */,
 			);
 			name = SplitJoin;
 			productName = SplitJoin;
 			productReference = 9B564A1523716F9800734488 /* SplitJoin.appex */;
 			productType = "com.apple.product-type.xcode-extension";
 		};
-		9B564A2A23716FC600734488 /* HelloXcodeExtensionsTests */ = {
+		9BB61403238DBFB800FE8908 /* SplitJoinKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9B564A3223716FC600734488 /* Build configuration list for PBXNativeTarget "HelloXcodeExtensionsTests" */;
+			buildConfigurationList = 9BB61420238DBFB800FE8908 /* Build configuration list for PBXNativeTarget "SplitJoinKit" */;
 			buildPhases = (
-				9B564A2723716FC600734488 /* Sources */,
-				9B564A2823716FC600734488 /* Frameworks */,
-				9B564A2923716FC600734488 /* Resources */,
+				9BB613FF238DBFB800FE8908 /* Headers */,
+				9BB61400238DBFB800FE8908 /* Sources */,
+				9BB61401238DBFB800FE8908 /* Frameworks */,
+				9BB61402238DBFB800FE8908 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9B564A3123716FC600734488 /* PBXTargetDependency */,
 			);
-			name = HelloXcodeExtensionsTests;
-			productName = HelloXcodeExtensionsTests;
-			productReference = 9B564A2B23716FC600734488 /* HelloXcodeExtensionsTests.xctest */;
+			name = SplitJoinKit;
+			productName = SplitJoinKit;
+			productReference = 9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9BB6140B238DBFB800FE8908 /* SplitJoinKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BB61421238DBFB800FE8908 /* Build configuration list for PBXNativeTarget "SplitJoinKitTests" */;
+			buildPhases = (
+				9BB61408238DBFB800FE8908 /* Sources */,
+				9BB61409238DBFB800FE8908 /* Frameworks */,
+				9BB6140A238DBFB800FE8908 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BB6140F238DBFB800FE8908 /* PBXTargetDependency */,
+				9BB61411238DBFB800FE8908 /* PBXTargetDependency */,
+			);
+			name = SplitJoinKitTests;
+			productName = SplitJoinKitTests;
+			productReference = 9BB6140C238DBFB800FE8908 /* SplitJoinKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -234,8 +342,11 @@
 					9B564A1423716F9800734488 = {
 						CreatedOnToolsVersion = 11.2;
 					};
-					9B564A2A23716FC600734488 = {
-						CreatedOnToolsVersion = 11.2;
+					9BB61403238DBFB800FE8908 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					9BB6140B238DBFB800FE8908 = {
+						CreatedOnToolsVersion = 11.2.1;
 						TestTargetID = 9B5649FD23716F3200734488;
 					};
 				};
@@ -255,7 +366,8 @@
 			targets = (
 				9B5649FD23716F3200734488 /* HelloXcodeExtensions */,
 				9B564A1423716F9800734488 /* SplitJoin */,
-				9B564A2A23716FC600734488 /* HelloXcodeExtensionsTests */,
+				9BB61403238DBFB800FE8908 /* SplitJoinKit */,
+				9BB6140B238DBFB800FE8908 /* SplitJoinKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -277,7 +389,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B564A2923716FC600734488 /* Resources */ = {
+		9BB61402238DBFB800FE8908 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BB6140A238DBFB800FE8908 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -302,15 +421,23 @@
 			files = (
 				9B564A1B23716F9800734488 /* SourceEditorExtension.swift in Sources */,
 				9B564A1D23716F9800734488 /* SourceEditorCommand.swift in Sources */,
-				9B3026BB238436E800D81EDC /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B564A2723716FC600734488 /* Sources */ = {
+		9BB61400238DBFB800FE8908 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B564A2E23716FC600734488 /* HelloXcodeExtensionsTests.swift in Sources */,
+				9BB61428238DBFDA00FE8908 /* CodeRange.swift in Sources */,
+				9BB61427238DBFD000FE8908 /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BB61408238DBFB800FE8908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BB61414238DBFB800FE8908 /* SplitJoinKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,10 +449,25 @@
 			target = 9B564A1423716F9800734488 /* SplitJoin */;
 			targetProxy = 9B564A2023716F9800734488 /* PBXContainerItemProxy */;
 		};
-		9B564A3123716FC600734488 /* PBXTargetDependency */ = {
+		9BB6140F238DBFB800FE8908 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BB61403238DBFB800FE8908 /* SplitJoinKit */;
+			targetProxy = 9BB6140E238DBFB800FE8908 /* PBXContainerItemProxy */;
+		};
+		9BB61411238DBFB800FE8908 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9B5649FD23716F3200734488 /* HelloXcodeExtensions */;
-			targetProxy = 9B564A3023716FC600734488 /* PBXContainerItemProxy */;
+			targetProxy = 9BB61410238DBFB800FE8908 /* PBXContainerItemProxy */;
+		};
+		9BB61418238DBFB800FE8908 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BB61403238DBFB800FE8908 /* SplitJoinKit */;
+			targetProxy = 9BB61417238DBFB800FE8908 /* PBXContainerItemProxy */;
+		};
+		9BB61425238DBFC600FE8908 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BB61403238DBFB800FE8908 /* SplitJoinKit */;
+			targetProxy = 9BB61424238DBFC600FE8908 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -538,40 +680,98 @@
 			};
 			name = Release;
 		};
-		9B564A3323716FC600734488 /* Debug */ = {
+		9BB6141C238DBFB800FE8908 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4E6CZX3H5W;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SplitJoinKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fespinozacast.example.SplitJoinKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9BB6141D238DBFB800FE8908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4E6CZX3H5W;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SplitJoinKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fespinozacast.example.SplitJoinKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9BB6141E238DBFB800FE8908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4E6CZX3H5W;
-				INFOPLIST_FILE = HelloXcodeExtensionsTests/Info.plist;
+				INFOPLIST_FILE = SplitJoinKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fespinoza.lab.HelloXcodeExtensionsTests;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fespinozacast.example.SplitJoinKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HelloXcodeExtensions.app/Contents/MacOS/HelloXcodeExtensions";
 			};
 			name = Debug;
 		};
-		9B564A3423716FC600734488 /* Release */ = {
+		9BB6141F238DBFB800FE8908 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4E6CZX3H5W;
-				INFOPLIST_FILE = HelloXcodeExtensionsTests/Info.plist;
+				INFOPLIST_FILE = SplitJoinKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fespinoza.lab.HelloXcodeExtensionsTests;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fespinozacast.example.SplitJoinKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HelloXcodeExtensions.app/Contents/MacOS/HelloXcodeExtensions";
@@ -608,11 +808,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9B564A3223716FC600734488 /* Build configuration list for PBXNativeTarget "HelloXcodeExtensionsTests" */ = {
+		9BB61420238DBFB800FE8908 /* Build configuration list for PBXNativeTarget "SplitJoinKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B564A3323716FC600734488 /* Debug */,
-				9B564A3423716FC600734488 /* Release */,
+				9BB6141C238DBFB800FE8908 /* Debug */,
+				9BB6141D238DBFB800FE8908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BB61421238DBFB800FE8908 /* Build configuration list for PBXNativeTarget "SplitJoinKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BB6141E238DBFB800FE8908 /* Debug */,
+				9BB6141F238DBFB800FE8908 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
