@@ -37,9 +37,9 @@ public struct Utils {
                             let newContent = String(substring)
                                 .replacingOccurrences(of: ", ", with: "%", options: [], range: nil)
                                 .split(separator: "%")
-                                .joined(separator: ",\n\(spacing)    ")
+                                .joined(separator: ",\n\(spacing)\(spacingString)")
 
-                            returnString += "(\n    \(spacing)\(newContent)\n\(spacing))"
+                            returnString += "(\n\(spacingString)\(spacing)\(newContent)\n\(spacing))"
                         } else {
                             returnString += String(string[range])
                         }

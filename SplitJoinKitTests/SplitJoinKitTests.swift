@@ -32,6 +32,21 @@ class SplitJoinKitTests: XCTestCase {
                 )
             """
         ),
+        SplitJoinTestCase(
+            name: "Simple test case with 2 spaces",
+            joined: """
+                static let attributesStyle = SampleAttributeStyle(titleFont: .caption, titleColor: .textPrimary, titleNumberOfLines: 1, titleColomnFixedWidth: 130)
+            """,
+            splitted: """
+                static let attributesStyle = SampleAttributeStyle(
+                  titleFont: .caption,
+                  titleColor: .textPrimary,
+                  titleNumberOfLines: 1,
+                  titleColomnFixedWidth: 130
+                )
+            """,
+            spacing: "  "
+        )
     ]
 
     func testSplitIdentity() {
