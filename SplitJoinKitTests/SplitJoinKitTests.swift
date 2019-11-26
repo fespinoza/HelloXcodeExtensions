@@ -46,6 +46,21 @@ class SplitJoinKitTests: XCTestCase {
                 )
             """,
             spacing: "  "
+        ),
+        SplitJoinTestCase(
+            name: "Simple test case with Tabs",
+            joined: """
+                static let attributesStyle = SampleAttributeStyle(titleFont: .caption, titleColor: .textPrimary, titleNumberOfLines: 1, titleColomnFixedWidth: 130)
+            """,
+            splitted: """
+                static let attributesStyle = SampleAttributeStyle(
+                \ttitleFont: .caption,
+                \ttitleColor: .textPrimary,
+                \ttitleNumberOfLines: 1,
+                \ttitleColomnFixedWidth: 130
+                )
+            """,
+            spacing: "\t"
         )
     ]
 
