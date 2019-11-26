@@ -9,47 +9,68 @@
 import XCTest
 import SplitJoinKit
 
+struct SplitJoinTestCase {
+    let name: String
+    let joined: String
+    let splitted: String
+    var spacing: String = "    "
+}
+
 class SplitJoinKitTests: XCTestCase {
-    private func split(_ string: String) -> String {
-        Utils.split(string)
+    let cases: [SplitJoinTestCase] = [
+        SplitJoinTestCase(
+            name: "Intial test case",
+            joined: """
+                static let attributesStyle = SampleAttributeStyle(titleFont: .caption, titleColor: .textPrimary, titleNumberOfLines: 1, titleColomnFixedWidth: 130)
+            """,
+            splitted: """
+                static let attributesStyle = SampleAttributeStyle(
+                    titleFont: .caption,
+                    titleColor: .textPrimary,
+                    titleNumberOfLines: 1,
+                    titleColomnFixedWidth: 130
+                )
+            """
+        ),
+    ]
+
+    func testSplitIdentity() {
+        cases.forEach { testCase in
+            XCTAssertEqual(
+                split(testCase.splitted, spacing: testCase.spacing),
+                testCase.splitted,
+                "\(testCase.name) failed"
+            )
+        }
+    }
+
+    func testSplit() {
+        cases.forEach { testCase in
+            XCTAssertEqual(
+                split(testCase.joined, spacing: testCase.spacing),
+                testCase.splitted,
+                "\(testCase.name) failed"
+            )
+        }
+    }
+
+    func testJoin() {
+        cases.forEach { testCase in
+            XCTAssertEqual(join(testCase.splitted), testCase.joined, "\(testCase.name) failed")
+        }
+    }
+
+    func testJoinIdentity() {
+        cases.forEach { testCase in
+            XCTAssertEqual(join(testCase.joined), testCase.joined, "\(testCase.name) failed")
+        }
+    }
+
+    private func split(_ string: String, spacing: String) -> String {
+        Utils.split(string, spacingString: spacing)
     }
 
     private func join(_ string: String) -> String {
         Utils.join(string)
-    }
-
-    // TODO: test nested cases
-
-    let joined = """
-        static let attributesStyle = AdPageLabelValuePairsViewStyle(titleFont: .caption, titleColor: .textPrimary, titleNumberOfLines: 1, titleColomnFixedWidth: 130, valueFont: .caption, valueColor: .textPrimary, valueNumberOfLines: 1, extraRowSpacing: .smallSpacing)
-    """
-
-    let splitted = """
-        static let attributesStyle = AdPageLabelValuePairsViewStyle(
-            titleFont: .caption,
-            titleColor: .textPrimary,
-            titleNumberOfLines: 1,
-            titleColomnFixedWidth: 130,
-            valueFont: .caption,
-            valueColor: .textPrimary,
-            valueNumberOfLines: 1,
-            extraRowSpacing: .smallSpacing
-        )
-    """
-
-    func testSplitIdentity() {
-        XCTAssertEqual(split(splitted), splitted)
-    }
-
-    func testSplit() {
-        XCTAssertEqual(split(joined), splitted)
-    }
-
-    func testJoin() {
-        XCTAssertEqual(join(splitted), joined)
-    }
-
-    func testJoinIdentity() {
-        XCTAssertEqual(join(joined), joined)
     }
 }
