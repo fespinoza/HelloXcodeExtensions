@@ -12,47 +12,41 @@ public struct Utils {
     private static let splitPattern: String = #"(?<spacing>\s*)(?<preContent>[^\(]*)\((?<content>.*)\)(?<suffix>[^\)]*)"#
 
     public static func split(_ string: String, spacing: String = "    ") -> String {
-        do {
-            let pattern = #"(?<spacing>\s*)(?<preContent>[^\(]*)\((?<content>.*)\)(?<suffix>[^\)]*)"#
-            let regex = try NSRegularExpression(pattern: pattern, options: [])
+        let stringRange = NSRange(string.startIndex..<string.endIndex, in: string)
 
-            let stringRange = NSRange(string.startIndex..<string.endIndex, in: string)
-            var returnString = ""
-            var preLineSpacing = ""
-
-            if let match = regex.firstMatch(in: string, options: [], range: stringRange) {
-                for name in ["spacing", "preContent", "content", "suffix"] {
-
-                    let nameRange = match.range(withName: name)
-                    if nameRange.location != NSNotFound, let range = Range(nameRange, in: string) {
-                        print("\(name): \(string[range])")
-
-                        if name == "spacing" {
-                            preLineSpacing = String(string[range])
-                        }
-
-
-                        if name == "content" {
-                            let substring = string[range]
-                            let newContent = String(substring)
-                                .replacingOccurrences(of: ", ", with: "%", options: [], range: nil)
-                                .split(separator: "%")
-                                .joined(separator: ",\n\(preLineSpacing)\(spacing)")
-
-                            returnString += "(\n\(preLineSpacing)\(spacing)\(newContent)\n\(preLineSpacing))"
-                        } else {
-                            returnString += String(string[range])
-                        }
-                    }
-                }
-            } else {
-                return string
-            }
-
-            return returnString
-        } catch {
+        guard
+            let regex = try? NSRegularExpression(pattern: splitPattern, options: []),
+            let match = regex.firstMatch(in: string, options: [], range: stringRange)
+        else {
             return string
         }
+
+        var returnString = ""
+        var preLineSpacing = ""
+
+        for name in ["spacing", "preContent", "content", "suffix"] {
+
+            let nameRange = match.range(withName: name)
+            if nameRange.location != NSNotFound, let range = Range(nameRange, in: string) {
+                if name == "spacing" {
+                    preLineSpacing = String(string[range])
+                }
+
+                if name == "content" {
+                    let substring = string[range]
+                    let newContent = String(substring)
+                        .replacingOccurrences(of: ", ", with: "%", options: [], range: nil)
+                        .split(separator: "%")
+                        .joined(separator: ",\n\(preLineSpacing)\(spacing)")
+
+                    returnString += "(\n\(preLineSpacing)\(spacing)\(newContent)\n\(preLineSpacing))"
+                } else {
+                    returnString += String(string[range])
+                }
+            }
+        }
+
+        return returnString
     }
 
     public static func join(_ string: String) -> String {
