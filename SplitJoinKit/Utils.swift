@@ -11,14 +11,14 @@ import Foundation
 public struct Utils {
     private static let splitPattern: String = #"(?<spacing>\s*)(?<preContent>[^\(]*)\((?<content>.*)\)(?<suffix>[^\)]*)"#
 
-    public static func split(_ string: String, spacingString: String = "    ") -> String {
+    public static func split(_ string: String, spacing: String = "    ") -> String {
         do {
             let pattern = #"(?<spacing>\s*)(?<preContent>[^\(]*)\((?<content>.*)\)(?<suffix>[^\)]*)"#
             let regex = try NSRegularExpression(pattern: pattern, options: [])
 
             let stringRange = NSRange(string.startIndex..<string.endIndex, in: string)
             var returnString = ""
-            var spacing = ""
+            var preLineSpacing = ""
 
             if let match = regex.firstMatch(in: string, options: [], range: stringRange) {
                 for name in ["spacing", "preContent", "content", "suffix"] {
@@ -28,7 +28,7 @@ public struct Utils {
                         print("\(name): \(string[range])")
 
                         if name == "spacing" {
-                            spacing = String(string[range])
+                            preLineSpacing = String(string[range])
                         }
 
 
@@ -37,9 +37,9 @@ public struct Utils {
                             let newContent = String(substring)
                                 .replacingOccurrences(of: ", ", with: "%", options: [], range: nil)
                                 .split(separator: "%")
-                                .joined(separator: ",\n\(spacing)\(spacingString)")
+                                .joined(separator: ",\n\(preLineSpacing)\(spacing)")
 
-                            returnString += "(\n\(spacing)\(spacingString)\(newContent)\n\(spacing))"
+                            returnString += "(\n\(preLineSpacing)\(spacing)\(newContent)\n\(preLineSpacing))"
                         } else {
                             returnString += String(string[range])
                         }

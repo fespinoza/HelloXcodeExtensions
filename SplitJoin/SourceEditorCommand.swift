@@ -54,7 +54,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
     private func split(_ text: String, spacingString: String) -> [String] {
         Utils
-            .split(text, spacingString: spacingString)
+            .split(text, spacing: spacingString)
             .split(separator: "\n")
             .compactMap({ String($0) })
     }

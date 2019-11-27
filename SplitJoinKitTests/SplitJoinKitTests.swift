@@ -97,7 +97,7 @@ class SplitJoinKitTests: XCTestCase {
     }
 
     private func split(_ string: String, spacing: String) -> String {
-        Utils.split(string, spacingString: spacing)
+        Utils.split(string, spacing: spacing)
     }
 
     private func join(_ string: String) -> String {
