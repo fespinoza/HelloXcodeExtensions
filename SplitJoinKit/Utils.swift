@@ -39,7 +39,7 @@ public struct Utils {
                                 .split(separator: "%")
                                 .joined(separator: ",\n\(spacing)\(spacingString)")
 
-                            returnString += "(\n\(spacingString)\(spacing)\(newContent)\n\(spacing))"
+                            returnString += "(\n\(spacing)\(spacingString)\(newContent)\n\(spacing))"
                         } else {
                             returnString += String(string[range])
                         }
