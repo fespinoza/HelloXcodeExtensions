@@ -21,37 +21,17 @@ public struct Utils {
             return string
         }
 
-        var returnString = ""
-        var preLineSpacing = ""
+        let preLineSpacing = string.matchingString(from: match, withName: "spacing")
+        let preContent = string.matchingString(from: match, withName: "preContent")
+        let suffix = string.matchingString(from: match, withName: "suffix")
 
-        for name in ["spacing", "preContent", "content", "suffix"] {
-            let nameRange = match.range(withName: name)
-            guard
-                let range = Range(nameRange, in: string),
-                nameRange.location != NSNotFound
-            else {
-                continue
-            }
+        let content = string.matchingString(from: match, withName: "content")
+            .replacingOccurrences(of: ", ", with: "%", options: [], range: nil)
+            .split(separator: "%")
+            .joined(separator: ",\n\(preLineSpacing)\(spacing)")
+        let newContent = "(\n\(preLineSpacing)\(spacing)\(content)\n\(preLineSpacing))"
 
-            let substring = String(string[range])
-
-            if name == "spacing" {
-                preLineSpacing = substring
-            }
-
-            if name == "content" {
-                let newContent = substring
-                    .replacingOccurrences(of: ", ", with: "%", options: [], range: nil)
-                    .split(separator: "%")
-                    .joined(separator: ",\n\(preLineSpacing)\(spacing)")
-
-                returnString += "(\n\(preLineSpacing)\(spacing)\(newContent)\n\(preLineSpacing))"
-            } else {
-                returnString += substring
-            }
-        }
-
-        return returnString
+        return preLineSpacing + preContent + newContent + suffix
     }
 
     public static func join(_ string: String) -> String {
@@ -60,5 +40,19 @@ public struct Utils {
             .replacingOccurrences(of: #",\s+"#, with: ", ", options: .regularExpression)
             .replacingOccurrences(of: #"\(\s+"#, with: "(", options: .regularExpression)
             .replacingOccurrences(of: #"\s+\)"#, with: ")", options: .regularExpression)
+    }
+}
+
+private extension String {
+    func matchingString(from match: NSTextCheckingResult, withName name: String) -> String {
+        let nameRange = match.range(withName: name)
+        guard
+            let range = Range(nameRange, in: self),
+            nameRange.location != NSNotFound
+        else {
+            return ""
+        }
+
+        return String(self[range])
     }
 }
