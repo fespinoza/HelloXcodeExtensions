@@ -10,16 +10,6 @@ import Foundation
 import XcodeKit
 import SplitJoinKit
 
-/*
-
- ## TODO
-
- - handle joins without selection
- - improve code
- - support different indentation settings?
-
- */
-
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
         let selectedLines = self.selectedLines(in: invocation.buffer)
@@ -74,7 +64,4 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     private func spacingString(for buffer: XCSourceTextBuffer) -> String {
         return buffer.usesTabsForIndentation ? "\t" : String(repeating: " ", count: buffer.indentationWidth)
     }
-
-    // join to ternary operator
-    // replace "if" for "guard let"
 }
