@@ -25,24 +25,29 @@ public struct Utils {
         var preLineSpacing = ""
 
         for name in ["spacing", "preContent", "content", "suffix"] {
-
             let nameRange = match.range(withName: name)
-            if nameRange.location != NSNotFound, let range = Range(nameRange, in: string) {
-                if name == "spacing" {
-                    preLineSpacing = String(string[range])
-                }
+            guard
+                let range = Range(nameRange, in: string),
+                nameRange.location != NSNotFound
+            else {
+                continue
+            }
 
-                if name == "content" {
-                    let substring = string[range]
-                    let newContent = String(substring)
-                        .replacingOccurrences(of: ", ", with: "%", options: [], range: nil)
-                        .split(separator: "%")
-                        .joined(separator: ",\n\(preLineSpacing)\(spacing)")
+            let substring = String(string[range])
 
-                    returnString += "(\n\(preLineSpacing)\(spacing)\(newContent)\n\(preLineSpacing))"
-                } else {
-                    returnString += String(string[range])
-                }
+            if name == "spacing" {
+                preLineSpacing = substring
+            }
+
+            if name == "content" {
+                let newContent = substring
+                    .replacingOccurrences(of: ", ", with: "%", options: [], range: nil)
+                    .split(separator: "%")
+                    .joined(separator: ",\n\(preLineSpacing)\(spacing)")
+
+                returnString += "(\n\(preLineSpacing)\(spacing)\(newContent)\n\(preLineSpacing))"
+            } else {
+                returnString += substring
             }
         }
 
