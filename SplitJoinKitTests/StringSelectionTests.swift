@@ -99,44 +99,14 @@ class StringSelectionTests: XCTestCase {
 
         if selectedLine.contains("(") && !selectedLine.contains(")") {
             start = lineNumber
-            for i in (lineNumber+1)..<lines.count {
-                let line = lines[i]
-                if line.contains(")") {
-                    end = i
-                    break
-                }
-            }
+            end = lines.searchFirstMatch(of: hasClosignParenthesis, within: (lineNumber+1)..<lines.count)
         } else if selectedLine.contains(")") && !selectedLine.contains("(") {
+            start = lines.searchFirstMatch(of: hasOpeningParenthesis, within: 0..<lineNumber, reversed: true)
             end = lineNumber
-            for i in (0..<lineNumber).reversed() {
-                let line = lines[i]
-                if line.contains("(") {
-                    start = i
-                    break
-                }
-            }
         } else {
             // searching up
-            for i in (0..<lineNumber).reversed() {
-                let line = lines[i]
-                if line.contains(")") {
-                    break
-                } else if line.contains("(") {
-                    start = i
-                    break
-                }
-            }
-
-            // searching down
-            for i in (lineNumber+1)..<lines.count {
-                let line = lines[i]
-                if line.contains("(") {
-                    break
-                } else if line.contains(")") {
-                    end = i
-                    break
-                }
-            }
+            start = lines.searchFirstMatch(of: onlyOpeningParenthesis, within: 0..<lineNumber, reversed: true)
+            end = lines.searchFirstMatch(of: onlyClosingParenthesis, within: (lineNumber + 1)..<lines.count)
         }
 
         guard
@@ -149,5 +119,62 @@ class StringSelectionTests: XCTestCase {
         let relevantLines = lines[_start..._end].map({ $0 })
 
         return CodeRange(startIndex: _start, endIndex: _end, lines: relevantLines)
+    }
+
+    private func hasOpeningParenthesis(_ line: String) -> Bool? {
+        line.contains("(") ? true : nil
+    }
+
+    private func hasClosignParenthesis(_ line: String) -> Bool? {
+        line.contains(")") ? true : nil
+    }
+
+    private func onlyClosingParenthesis(_ line: String) -> Bool? {
+        if line.contains("(") {
+            return false
+        } else if line.contains(")") {
+            return true
+        }
+        return nil
+    }
+
+    private func onlyOpeningParenthesis(_ line: String) -> Bool? {
+        if line.contains(")") {
+            return false
+        } else if line.contains("(") {
+            return true
+        }
+        return nil
+    }
+}
+
+extension Optional where Wrapped == Bool {
+    var valueOrFalse: Bool {
+        switch self {
+        case .none: return false
+        case .some(let value): return value
+        }
+    }
+}
+
+extension Array where Element == String {
+    func searchFirstMatch(of predicate: (String) -> Bool?, within range: Range<Int>, reversed: Bool = false) -> Int? {
+        if reversed {
+            for index in range.reversed() {
+                let line = self[index]
+                if let satisfiedPredicate = predicate(line) {
+                    return satisfiedPredicate ? index : nil
+                }
+            }
+        } else {
+            for index in range {
+                let line = self[index]
+                if let satisfiedPredicate = predicate(line) {
+                    return satisfiedPredicate ? index : nil
+                }
+            }
+        }
+
+        return nil
     }
 }
