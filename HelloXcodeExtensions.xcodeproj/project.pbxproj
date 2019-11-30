@@ -24,6 +24,7 @@
 		9BB61423238DBFC600FE8908 /* SplitJoinKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9BB61427238DBFD000FE8908 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3026BA238436E800D81EDC /* Utils.swift */; };
 		9BB61428238DBFDA00FE8908 /* CodeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB2C0C238C77AB00362C8D /* CodeRange.swift */; };
+		9BEE6B6F2390073800C05DC3 /* StringSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE6B6E2390073800C05DC3 /* StringSelectionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		9BB61413238DBFB800FE8908 /* SplitJoinKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitJoinKitTests.swift; sourceTree = "<group>"; };
 		9BB61415238DBFB800FE8908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BBB2C0C238C77AB00362C8D /* CodeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeRange.swift; sourceTree = "<group>"; };
+		9BEE6B6E2390073800C05DC3 /* StringSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSelectionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,8 +231,9 @@
 		9BB61412238DBFB800FE8908 /* SplitJoinKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				9BB61413238DBFB800FE8908 /* SplitJoinKitTests.swift */,
 				9BB61415238DBFB800FE8908 /* Info.plist */,
+				9BB61413238DBFB800FE8908 /* SplitJoinKitTests.swift */,
+				9BEE6B6E2390073800C05DC3 /* StringSelectionTests.swift */,
 			);
 			path = SplitJoinKitTests;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB61414238DBFB800FE8908 /* SplitJoinKitTests.swift in Sources */,
+				9BEE6B6F2390073800C05DC3 /* StringSelectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
