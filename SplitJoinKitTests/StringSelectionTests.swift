@@ -32,12 +32,19 @@ class StringSelectionTests: XCTestCase {
         let newContent = "content"
     """
 
+    var sampleCodeLines: [String] {
+        sampleCode
+            .split(separator: "\n")
+            .compactMap({ String($0) })
+    }
+
     let joinableCode = """
         let preLineSpacing = string.matchingString(
             from: match,
             withName: "spacing"
         )
     """
+
     var joinableCodeLines: [String] {
         joinableCode
             .split(separator: "\n")
@@ -88,6 +95,22 @@ class StringSelectionTests: XCTestCase {
         let lineNumber = 4 // return string
         let resultRange = joinableLines(for: sampleCode, in: lineNumber)
         XCTAssertNil(resultRange)
+    }
+
+    func testSplitableLine() {
+        let lineNumber = 10
+        let line = sampleCodeLines[lineNumber] // let preContent = string.matchingString(from: match, withName: "preContent")
+        XCTAssertTrue(splitableLine(for: line))
+    }
+
+    func testNonSplitableLine() {
+        let lineNumber = 6
+        let line = sampleCodeLines[lineNumber] // let preLineSpacing = string.matchingString(
+        XCTAssertFalse(splitableLine(for: line))
+    }
+
+    private func splitableLine(for line: String) -> Bool {
+        Utils.splittable(line: line)
     }
 
     private func joinableLines(for code: String, in lineNumber: Int) -> CodeRange? {

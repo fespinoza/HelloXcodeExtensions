@@ -42,6 +42,18 @@ public struct Utils {
             .replacingOccurrences(of: #"\s+\)"#, with: ")", options: .regularExpression)
     }
 
+    public static func splittable(line: String) -> Bool {
+        let stringRange = NSRange(line.startIndex..<line.endIndex, in: line)
+
+        guard
+            let regex = try? NSRegularExpression(pattern: splitPattern, options: [])
+        else {
+            return false
+        }
+
+        return regex.firstMatch(in: line, options: [], range: stringRange) != nil
+    }
+
     public static func joinableLines(for string: String, in lineNumber: Int) -> CodeRange? {
         var start: Int? = nil
         var end: Int? = nil
