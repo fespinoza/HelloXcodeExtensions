@@ -41,6 +41,63 @@ public struct Utils {
             .replacingOccurrences(of: #"\(\s+"#, with: "(", options: .regularExpression)
             .replacingOccurrences(of: #"\s+\)"#, with: ")", options: .regularExpression)
     }
+
+    public static func joinableLines(for string: String, in lineNumber: Int) -> CodeRange? {
+        var start: Int? = nil
+        var end: Int? = nil
+
+        let lines = string.split(separator: "\n").compactMap({ String($0) })
+        let selectedLine = lines[lineNumber]
+
+        if selectedLine.contains("(") && !selectedLine.contains(")") {
+            start = lineNumber
+            end = lines.searchFirstMatch(of: hasClosignParenthesis, within: (lineNumber+1)..<lines.count)
+        } else if selectedLine.contains(")") && !selectedLine.contains("(") {
+            start = lines.searchFirstMatch(of: hasOpeningParenthesis, within: 0..<lineNumber, reversed: true)
+            end = lineNumber
+        } else {
+            // searching up
+            start = lines.searchFirstMatch(of: onlyOpeningParenthesis, within: 0..<lineNumber, reversed: true)
+            end = lines.searchFirstMatch(of: onlyClosingParenthesis, within: (lineNumber + 1)..<lines.count)
+        }
+
+        guard
+            let _start = start,
+            let _end = end
+        else {
+            return nil
+        }
+
+        let relevantLines = lines[_start..._end].map({ $0 })
+
+        return CodeRange(startIndex: _start, endIndex: _end, lines: relevantLines)
+    }
+
+    private static  func hasOpeningParenthesis(_ line: String) -> Bool? {
+        line.contains("(") ? true : nil
+    }
+
+    private static func hasClosignParenthesis(_ line: String) -> Bool? {
+        line.contains(")") ? true : nil
+    }
+
+    private static func onlyClosingParenthesis(_ line: String) -> Bool? {
+        if line.contains("(") {
+            return false
+        } else if line.contains(")") {
+            return true
+        }
+        return nil
+    }
+
+    private static func onlyOpeningParenthesis(_ line: String) -> Bool? {
+        if line.contains(")") {
+            return false
+        } else if line.contains("(") {
+            return true
+        }
+        return nil
+    }
 }
 
 private extension String {
