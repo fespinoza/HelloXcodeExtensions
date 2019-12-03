@@ -53,7 +53,7 @@ class StringSelectionTests: XCTestCase {
 
     func testSelectingTextInsideParenthesis() {
         let lineNumber = 7 // from: match,
-        guard let resultRange = joinableLines(for: sampleCode, in: lineNumber) else {
+        guard let resultRange = joinableLines(for: sampleCodeLines, in: lineNumber) else {
             XCTFail("There should have been a result range")
             return
         }
@@ -65,7 +65,7 @@ class StringSelectionTests: XCTestCase {
 
     func testSelectingTextInsideParenthesisStartCase() {
         let lineNumber = 6 // let preLineSpacing = string.matchingString(
-        guard let resultRange = joinableLines(for: sampleCode, in: lineNumber) else {
+        guard let resultRange = joinableLines(for: sampleCodeLines, in: lineNumber) else {
             XCTFail("There should have been a result range")
             return
         }
@@ -76,7 +76,7 @@ class StringSelectionTests: XCTestCase {
 
     func testSelectingTextInsideParenthesisEndCase() {
         let lineNumber = 9 // )
-        guard let resultRange = joinableLines(for: sampleCode, in: lineNumber) else {
+        guard let resultRange = joinableLines(for: sampleCodeLines, in: lineNumber) else {
             XCTFail("There should have been a result range")
             return
         }
@@ -87,13 +87,13 @@ class StringSelectionTests: XCTestCase {
 
     func testSelectingTextWithParenthesisButNotJoinable() {
         let lineNumber = 10 // let preContent = string.matchingString(from: match, withName: "preContent")
-        let resultRange = joinableLines(for: sampleCode, in: lineNumber)
+        let resultRange = joinableLines(for: sampleCodeLines, in: lineNumber)
         XCTAssertNil(resultRange)
     }
 
     func testSelectingTextWithNoParenthesis() {
         let lineNumber = 4 // return string
-        let resultRange = joinableLines(for: sampleCode, in: lineNumber)
+        let resultRange = joinableLines(for: sampleCodeLines, in: lineNumber)
         XCTAssertNil(resultRange)
     }
 
@@ -113,7 +113,7 @@ class StringSelectionTests: XCTestCase {
         Utils.splittable(line: line)
     }
 
-    private func joinableLines(for code: String, in lineNumber: Int) -> CodeRange? {
-        Utils.joinableLines(for: code, in: lineNumber)
+    private func joinableLines(for codeLines: [String], in lineNumber: Int) -> CodeRange? {
+        Utils.joinableLines(for: codeLines, in: lineNumber)
     }
 }

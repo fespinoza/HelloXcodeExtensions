@@ -83,11 +83,6 @@ public struct Utils {
         return CodeRange(startIndex: _start, endIndex: _end, lines: relevantLines)
     }
 
-    public static func joinableLines(for string: String, in lineNumber: Int) -> CodeRange? {
-        let lines = string.split(separator: "\n").compactMap({ String($0) })
-        return joinableLines(for: lines, in: lineNumber)
-    }
-
     private static  func hasOpeningParenthesis(_ line: String) -> Bool? {
         line.contains("(") ? true : nil
     }
