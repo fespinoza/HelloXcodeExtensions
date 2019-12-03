@@ -54,11 +54,9 @@ public struct Utils {
         return regex.firstMatch(in: line, options: [], range: stringRange) != nil
     }
 
-    public static func joinableLines(for string: String, in lineNumber: Int) -> CodeRange? {
+    public static func joinableLines(for lines: [String], in lineNumber: Int) -> CodeRange? {
         var start: Int? = nil
         var end: Int? = nil
-
-        let lines = string.split(separator: "\n").compactMap({ String($0) })
         let selectedLine = lines[lineNumber]
 
         if selectedLine.contains("(") && !selectedLine.contains(")") {
@@ -83,6 +81,11 @@ public struct Utils {
         let relevantLines = lines[_start..._end].map({ $0 })
 
         return CodeRange(startIndex: _start, endIndex: _end, lines: relevantLines)
+    }
+
+    public static func joinableLines(for string: String, in lineNumber: Int) -> CodeRange? {
+        let lines = string.split(separator: "\n").compactMap({ String($0) })
+        return joinableLines(for: lines, in: lineNumber)
     }
 
     private static  func hasOpeningParenthesis(_ line: String) -> Bool? {
