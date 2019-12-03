@@ -28,13 +28,23 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
             buffer.lines.removeObjects(in: selection.range)
             buffer.lines.insert(result, at: selection.startIndex)
         } else {
-            let index = selection.startIndex
-            let line = selection.combinedLines
-            let spacingString = self.spacingString(for: buffer)
-            let splittedLines = split(line, spacingString: spacingString)
+            if Utils.splittable(line: selection.lines.first ?? "") {
+                let index = selection.startIndex
+                let line = selection.combinedLines
+                let spacingString = self.spacingString(for: buffer)
+                let splittedLines = split(line, spacingString: spacingString)
 
-            buffer.lines.removeObject(at: index)
-            buffer.lines.insert(splittedLines, at: IndexSet(integersIn: index..<(index + splittedLines.count)))
+                buffer.lines.removeObject(at: index)
+                buffer.lines.insert(splittedLines, at: IndexSet(integersIn: index..<(index + splittedLines.count)))
+            } else {
+                let lines = buffer.lines.compactMap({ $0 as? String })
+                if let joinableRange = Utils.joinableLines(for: lines, in: selection.startIndex) {
+                    let result = join(joinableRange.lines)
+
+                    buffer.lines.removeObjects(in: joinableRange.range)
+                    buffer.lines.insert(result, at: joinableRange.startIndex)
+                }
+            }
         }
     }
 
