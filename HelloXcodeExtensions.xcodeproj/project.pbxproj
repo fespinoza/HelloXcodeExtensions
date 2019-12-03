@@ -15,6 +15,7 @@
 		9B564A1B23716F9800734488 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A1A23716F9800734488 /* SourceEditorExtension.swift */; };
 		9B564A1D23716F9800734488 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A1C23716F9800734488 /* SourceEditorCommand.swift */; };
 		9B564A2223716F9800734488 /* SplitJoin.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B564A1523716F9800734488 /* SplitJoin.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9B8FE30E2396AD6900864534 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B8FE30D2396AD6900864534 /* README.md */; };
 		9BB6140D238DBFB800FE8908 /* SplitJoinKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */; };
 		9BB61414238DBFB800FE8908 /* SplitJoinKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB61413238DBFB800FE8908 /* SplitJoinKitTests.swift */; };
 		9BB61416238DBFB800FE8908 /* SplitJoinKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BB61406238DBFB800FE8908 /* SplitJoinKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -117,6 +118,7 @@
 		9B564A1C23716F9800734488 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
 		9B564A1E23716F9800734488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B564A1F23716F9800734488 /* SplitJoin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SplitJoin.entitlements; sourceTree = "<group>"; };
+		9B8FE30D2396AD6900864534 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SplitJoinKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB61406238DBFB800FE8908 /* SplitJoinKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplitJoinKit.h; sourceTree = "<group>"; };
 		9BB61407238DBFB800FE8908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		9B5649F523716F3200734488 = {
 			isa = PBXGroup;
 			children = (
+				9B8FE30D2396AD6900864534 /* README.md */,
 				9B564A0023716F3200734488 /* HelloXcodeExtensions */,
 				9B564A1923716F9800734488 /* SplitJoin */,
 				9BB61405238DBFB800FE8908 /* SplitJoinKit */,
@@ -383,6 +386,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B8FE30E2396AD6900864534 /* README.md in Resources */,
 				9B564A0623716F3400734488 /* Assets.xcassets in Resources */,
 				9B564A0923716F3400734488 /* Main.storyboard in Resources */,
 			);
