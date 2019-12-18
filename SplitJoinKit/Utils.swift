@@ -12,11 +12,8 @@ public struct Utils {
     private static let splitPattern: String = #"(?<spacing>\s*)(?<preContent>[^\(]*)\((?<content>.*)\)(?<suffix>[^\)]*)"#
 
     public static func split(_ string: String, spacing: String = "    ") -> String {
-        let stringRange = NSRange(string.startIndex..<string.endIndex, in: string)
-
         guard
-            let regex = try? NSRegularExpression(pattern: splitPattern, options: []),
-            let match = regex.firstMatch(in: string, options: [], range: stringRange)
+            let match = string.firstMatch(with: splitPattern)
         else {
             return string
         }
@@ -43,15 +40,7 @@ public struct Utils {
     }
 
     public static func splittable(line: String) -> Bool {
-        let stringRange = NSRange(line.startIndex..<line.endIndex, in: line)
-
-        guard
-            let regex = try? NSRegularExpression(pattern: splitPattern, options: [])
-        else {
-            return false
-        }
-
-        return regex.firstMatch(in: line, options: [], range: stringRange) != nil
+        return line.firstMatch(with: splitPattern) != nil
     }
 
     public static func joinableLines(for lines: [String], in lineNumber: Int) -> CodeRange? {
@@ -83,7 +72,7 @@ public struct Utils {
         return CodeRange(startIndex: _start, endIndex: _end, lines: relevantLines)
     }
 
-    private static  func hasOpeningParenthesis(_ line: String) -> Bool? {
+    private static func hasOpeningParenthesis(_ line: String) -> Bool? {
         line.contains("(") ? true : nil
     }
 
@@ -107,19 +96,5 @@ public struct Utils {
             return true
         }
         return nil
-    }
-}
-
-private extension String {
-    func matchingString(from match: NSTextCheckingResult, withName name: String) -> String {
-        let nameRange = match.range(withName: name)
-        guard
-            let range = Range(nameRange, in: self),
-            nameRange.location != NSNotFound
-        else {
-            return ""
-        }
-
-        return String(self[range])
     }
 }
