@@ -98,3 +98,67 @@ public struct Utils {
         return nil
     }
 }
+
+// MARK: - Lazy Var
+extension Utils {
+    public static func toLazyVar(line: String, spacing: String = "    ") -> String {
+        let pattern = #"(?<preSpacing>\s*)(?<modifier>let|var)\s+(?<variableName>\w+)\s+=\s+(?<value>.+)"#
+
+        guard
+            let match = line.firstMatch(with: pattern)
+        else {
+            return line
+        }
+
+        let preSpacing = line.matchingString(from: match, withName: "preSpacing")
+        let variableName = line.matchingString(from: match, withName: "variableName")
+        let value = line.matchingString(from: match, withName: "value")
+        let valueType = extractType(from: value)
+        let simpleVariableName = self.simpleVariableName(from: valueType)
+
+        return """
+        \(preSpacing)lazy var \(variableName): \(valueType) = {
+        \(preSpacing + spacing)let \(simpleVariableName) = \(value)
+        \(preSpacing + spacing)return \(simpleVariableName)
+        \(preSpacing)}()
+        """
+    }
+
+    public static func toNormalConstant(lines: [String]) -> String? {
+        guard lines.count > 2 else {
+            return nil
+        }
+
+        let firstLine = lines[0]
+        let secondLine = lines[1]
+
+        let firstPattern = #"\s*lazy var (?<variableName>\w+)\s*:.*"#
+        let secondPattern = #"\s*let \w+\s+=\s+(?<value>.*)"#
+
+        guard
+            let firstMatch = firstLine.firstMatch(with: firstPattern),
+            let secondMatch = secondLine.firstMatch(with: secondPattern)
+        else {
+            return nil
+        }
+
+        let variableName = firstLine.matchingString(from: firstMatch, withName: "variableName")
+        let value = secondLine.matchingString(from: secondMatch, withName: "value")
+
+        return "let \(variableName) = \(value)"
+    }
+
+    private static func extractType(from line: String) -> String {
+        let pattern = #"(?<valueType>[^\(]+).*"#
+        guard let match = line.firstMatch(with: pattern) else {
+            return line
+        }
+        return line.matchingString(from: match, withName: "valueType")
+    }
+
+    private static func simpleVariableName(from valueType: String) -> String {
+        let nonUIKitValueType = valueType.replacingOccurrences(of: "UI", with: "")
+        let (firstCharacter, restString) = nonUIKitValueType.splitInFirstAndRest()
+        return firstCharacter.lowercased() + restString
+    }
+}

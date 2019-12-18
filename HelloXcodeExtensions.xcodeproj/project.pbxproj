@@ -15,6 +15,7 @@
 		9B564A1B23716F9800734488 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A1A23716F9800734488 /* SourceEditorExtension.swift */; };
 		9B564A1D23716F9800734488 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A1C23716F9800734488 /* SourceEditorCommand.swift */; };
 		9B564A2223716F9800734488 /* SplitJoin.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B564A1523716F9800734488 /* SplitJoin.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9B7A444823AA64E500398351 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A444723AA64E500398351 /* String+Extensions.swift */; };
 		9B8FE30E2396AD6900864534 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B8FE30D2396AD6900864534 /* README.md */; };
 		9BB6140D238DBFB800FE8908 /* SplitJoinKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */; };
 		9BB61414238DBFB800FE8908 /* SplitJoinKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB61413238DBFB800FE8908 /* SplitJoinKitTests.swift */; };
@@ -27,6 +28,7 @@
 		9BB61428238DBFDA00FE8908 /* CodeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB2C0C238C77AB00362C8D /* CodeRange.swift */; };
 		9BBE2820239592AB00CEB5B6 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBE281F239592AB00CEB5B6 /* Array+Extensions.swift */; };
 		9BEE6B6F2390073800C05DC3 /* StringSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE6B6E2390073800C05DC3 /* StringSelectionTests.swift */; };
+		9BFAFA4D23A7FCBB0058533E /* LazyVarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFAFA4C23A7FCBB0058533E /* LazyVarTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,7 @@
 		9B564A1C23716F9800734488 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
 		9B564A1E23716F9800734488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B564A1F23716F9800734488 /* SplitJoin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SplitJoin.entitlements; sourceTree = "<group>"; };
+		9B7A444723AA64E500398351 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		9B8FE30D2396AD6900864534 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9BB61404238DBFB800FE8908 /* SplitJoinKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SplitJoinKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB61406238DBFB800FE8908 /* SplitJoinKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplitJoinKit.h; sourceTree = "<group>"; };
@@ -128,6 +131,7 @@
 		9BBB2C0C238C77AB00362C8D /* CodeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeRange.swift; sourceTree = "<group>"; };
 		9BBE281F239592AB00CEB5B6 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		9BEE6B6E2390073800C05DC3 /* StringSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSelectionTests.swift; sourceTree = "<group>"; };
+		9BFAFA4C23A7FCBB0058533E /* LazyVarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyVarTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +234,7 @@
 				9BB61406238DBFB800FE8908 /* SplitJoinKit.h */,
 				9BB61407238DBFB800FE8908 /* Info.plist */,
 				9BBE281F239592AB00CEB5B6 /* Array+Extensions.swift */,
+				9B7A444723AA64E500398351 /* String+Extensions.swift */,
 			);
 			path = SplitJoinKit;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				9BB61415238DBFB800FE8908 /* Info.plist */,
 				9BB61413238DBFB800FE8908 /* SplitJoinKitTests.swift */,
 				9BEE6B6E2390073800C05DC3 /* StringSelectionTests.swift */,
+				9BFAFA4C23A7FCBB0058533E /* LazyVarTests.swift */,
 			);
 			path = SplitJoinKitTests;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B7A444823AA64E500398351 /* String+Extensions.swift in Sources */,
 				9BB61428238DBFDA00FE8908 /* CodeRange.swift in Sources */,
 				9BBE2820239592AB00CEB5B6 /* Array+Extensions.swift in Sources */,
 				9BB61427238DBFD000FE8908 /* Utils.swift in Sources */,
@@ -449,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB61414238DBFB800FE8908 /* SplitJoinKitTests.swift in Sources */,
+				9BFAFA4D23A7FCBB0058533E /* LazyVarTests.swift in Sources */,
 				9BEE6B6F2390073800C05DC3 /* StringSelectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
