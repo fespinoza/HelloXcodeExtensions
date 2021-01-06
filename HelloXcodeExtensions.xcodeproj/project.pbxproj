@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1FB8C225A6425E00E18CC9 /* XcodeEditorExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1FB8C125A6425E00E18CC9 /* XcodeEditorExtensions */; };
+		9B1FB8C425A6426400E18CC9 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1FB8C325A6426400E18CC9 /* XcodeKit.framework */; };
+		9B1FB8C525A6426400E18CC9 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1FB8C325A6426400E18CC9 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B564A0223716F3200734488 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A0123716F3200734488 /* AppDelegate.swift */; };
 		9B564A0423716F3200734488 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B564A0323716F3200734488 /* ViewController.swift */; };
 		9B564A0623716F3400734488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B564A0523716F3400734488 /* Assets.xcassets */; };
@@ -56,6 +59,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9B1FB8C525A6426400E18CC9 /* XcodeKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +67,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B1FB8BD25A6424900E18CC9 /* XcodeEditorExtensions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XcodeEditorExtensions; path = "../07-packages/XcodeEditorExtensions"; sourceTree = "<group>"; };
+		9B1FB8C325A6426400E18CC9 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		9B5649FE23716F3200734488 /* HelloXcodeExtensions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloXcodeExtensions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B564A0123716F3200734488 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B564A0323716F3200734488 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B1FB8C425A6426400E18CC9 /* XcodeKit.framework in Frameworks */,
 				9B564A1823716F9800734488 /* Cocoa.framework in Frameworks */,
+				9B1FB8C225A6425E00E18CC9 /* XcodeEditorExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +109,7 @@
 		9B5649F523716F3200734488 = {
 			isa = PBXGroup;
 			children = (
+				9B1FB8BD25A6424900E18CC9 /* XcodeEditorExtensions */,
 				9B8FE30D2396AD6900864534 /* README.md */,
 				9B564A0023716F3200734488 /* HelloXcodeExtensions */,
 				9B564A1923716F9800734488 /* SplitJoin */,
@@ -134,6 +143,7 @@
 		9B564A1623716F9800734488 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B1FB8C325A6426400E18CC9 /* XcodeKit.framework */,
 				9B564A1723716F9800734488 /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -187,6 +197,9 @@
 			dependencies = (
 			);
 			name = SplitJoin;
+			packageProductDependencies = (
+				9B1FB8C125A6425E00E18CC9 /* XcodeEditorExtensions */,
+			);
 			productName = SplitJoin;
 			productReference = 9B564A1523716F9800734488 /* SplitJoin.appex */;
 			productType = "com.apple.product-type.xcode-extension";
@@ -523,6 +536,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9B1FB8C125A6425E00E18CC9 /* XcodeEditorExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = XcodeEditorExtensions;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9B5649F623716F3200734488 /* Project object */;
 }
