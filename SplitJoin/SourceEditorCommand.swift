@@ -8,7 +8,7 @@
 
 import Foundation
 import XcodeKit
-import SplitJoinKit
+import XcodeEditorExtensions
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
