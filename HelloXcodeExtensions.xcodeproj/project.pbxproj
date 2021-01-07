@@ -67,7 +67,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9B1FB8BD25A6424900E18CC9 /* XcodeEditorExtensions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XcodeEditorExtensions; path = "../07-packages/XcodeEditorExtensions"; sourceTree = "<group>"; };
 		9B1FB8C325A6426400E18CC9 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		9B5649FE23716F3200734488 /* HelloXcodeExtensions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloXcodeExtensions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B564A0123716F3200734488 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		9B564A1C23716F9800734488 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
 		9B564A1E23716F9800734488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B564A1F23716F9800734488 /* SplitJoin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SplitJoin.entitlements; sourceTree = "<group>"; };
+		9B86BFD025A6FDFE00E13F7D /* XcodeEditorExtensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = XcodeEditorExtensions; sourceTree = "<group>"; };
 		9B8FE30D2396AD6900864534 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +109,7 @@
 		9B5649F523716F3200734488 = {
 			isa = PBXGroup;
 			children = (
-				9B1FB8BD25A6424900E18CC9 /* XcodeEditorExtensions */,
+				9B86BFD025A6FDFE00E13F7D /* XcodeEditorExtensions */,
 				9B8FE30D2396AD6900864534 /* README.md */,
 				9B564A0023716F3200734488 /* HelloXcodeExtensions */,
 				9B564A1923716F9800734488 /* SplitJoin */,
